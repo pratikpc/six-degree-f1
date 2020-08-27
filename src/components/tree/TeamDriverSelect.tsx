@@ -1,10 +1,10 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
 import {
    TeamIdAndNameLink,
    DriverIdAndNameLink
-} from 'formula1-extract-driver-pairs';
+} from 'formula-one-six-degrees-metadata';
 
 import Selector from './Selector';
 

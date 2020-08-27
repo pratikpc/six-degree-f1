@@ -9,7 +9,6 @@ import Menu from './components/menu';
 import Footer from './components/Footer';
 import TreeDashboard from './components/tree';
 import SixDegrees from './components/sixdegrees';
-import About from './About';
 
 const App: React.FC = () => {
    const classes = useStyles();
@@ -23,7 +22,22 @@ const App: React.FC = () => {
                   <Switch>
                      <Route path="/" exact component={TreeDashboard} />
                      <Route path="/sixdegrees" component={SixDegrees} />
-                     <Route path="/about" component={About} />
+                     <Route
+                        path="/article"
+                        component={() => {
+                           window.location.href =
+                              'https://medium.com/@pratikpc/six-degrees-of-formula-one-and-other-inter-connections-160a3a668afa?source=friends_link&sk=474f667c0b1ea7e18e8531c23b48eb8b';
+                           return null;
+                        }}
+                     />
+                     <Route
+                        path="/code"
+                        component={() => {
+                           window.location.href =
+                              'https://github.com/pratikpc/six-degree-f1';
+                           return null;
+                        }}
+                     />
                   </Switch>
                </Container>
             </main>

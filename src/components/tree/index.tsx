@@ -6,13 +6,13 @@ import {
    FormControlLabel,
    Typography
 } from '@material-ui/core';
-import { Graph } from 'formula1-graph-names';
+import Graph from 'formula-one-six-degree-graph-util';
 import {
    TeamNamesAndDrivers,
    TeamNameT,
    DriverLinkNameT,
    DriverIdAndNameLink
-} from 'formula1-extract-driver-pairs';
+} from 'formula-one-six-degrees-metadata';
 
 import TeamDriverSelect, {
    dataTypes,
@@ -62,7 +62,7 @@ function TreeObtain(
             children: []
          }
       ];
-   return nodes;
+   return Graph.PathToTree(nodes);
 }
 
 const TreeShow: React.FC<{}> = () => {
@@ -76,14 +76,14 @@ const TreeShow: React.FC<{}> = () => {
    const [nodes, setNodes] = React.useState<any>({});
 
    React.useEffect(() => {
-      const nodeShow = TreeObtain(
+      const path = TreeObtain(
          valVL[0],
          typeVL[0],
          valVR[0],
          typeVR[0],
          closest
       );
-      setNodes(nodeShow);
+      setNodes(path);
    }, [valVL, typeVL, valVR, typeVR, closest]);
 
    return (

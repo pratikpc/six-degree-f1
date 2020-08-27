@@ -5,7 +5,9 @@ import List from '@material-ui/core/List';
 
 import IconDashboard from '@material-ui/icons/Dashboard';
 import IconInfo from '@material-ui/icons/Description';
-import IconAbout from '@material-ui/icons/InfoOutlined';
+import IconArticle from '@material-ui/icons/DescriptionSharp';
+import IconCode from '@material-ui/icons/GitHub';
+
 import MenuIcon from '@material-ui/icons/Menu';
 
 import Divider from '@material-ui/core/Divider';
@@ -33,9 +35,20 @@ const appMenuItems = [
       Icon: IconInfo
    },
    {
-      name: 'About',
-      link: '/about',
-      Icon: IconAbout
+      name: 'Divider',
+      // Just add metadata
+      link: '',
+      Icon: IconArticle
+   },
+   {
+      name: 'Article',
+      link: '/article',
+      Icon: IconArticle
+   },
+   {
+      name: 'Code',
+      link: '/code',
+      Icon: IconCode
    }
 ];
 
@@ -46,10 +59,14 @@ export function MenuItems({ classes }: { classes: { toolbar: string } }) {
          <div className={classes.toolbar} />
          <Divider />
          <List component="nav" disablePadding>
-            {appMenuItems.map((item, index) => (
-               // eslint-disable-next-line react/no-array-index-key
-               <AppMenuItem {...item} key={`${index}333a`} />
-            ))}
+            {appMenuItems.map((item, index) =>
+               item.name !== 'Divider' ? (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <AppMenuItem {...item} key={`${index}333a`} />
+               ) : (
+                  <Divider />
+               )
+            )}
          </List>
       </>
    );

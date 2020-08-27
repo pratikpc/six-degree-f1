@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { Graph } from 'formula1-graph-names';
+import Graph from 'formula-one-six-degree-graph-util';
 import Table from 'material-table';
 
 function TableShow({
